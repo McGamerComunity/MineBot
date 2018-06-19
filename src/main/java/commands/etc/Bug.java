@@ -49,13 +49,13 @@ public class Bug implements commands {
 
             if (args.length < 1) {
                 event.getTextChannel().sendMessage(new EmbedBuilder().setDescription(
-                        "If you want to submit a bug or a suggestion, please use the public **[google sheet](https://s.zekro.de/botsubs)**."
+                        "If you want to submit a bug or a suggestion, please use the **[RageFX Bugsheet](http://bugs.ragefx.de)**."
                 ).build()).queue();
                 return;
             }
             event.getTextChannel().sendMessage(MSGS.error().setDescription(
                     "Sorry, the expandet version of this command is only available on the public version of the bot!\n\n" +
-                            "If you want to submit a bug or a suggestion, please use the public **[google sheet](https://s.zekro.de/botsubs)**."
+                            "If you want to submit a bug or a suggestion, please use the public **[RageFX Bugsheet](http://bugs.ragefx.de)**."
             ).build()).queue();
             return;
         }
@@ -68,7 +68,7 @@ public class Bug implements commands {
                             "```-bug <title>\n" +
                             "<bug/gussestion>\n" +
                             "<message>```\n\n" +
-                            "Otherwise you can also just use the public **[google sheet](https://s.zekro.de/botsubs)** to submit a bug or suggestion."
+                            "Otherwise you can also just use the public **[RageFX Bugsheet](http://bugs.ragefx.de)** to submit a bug or suggestion."
             ).build()).queue();
         else {
 
