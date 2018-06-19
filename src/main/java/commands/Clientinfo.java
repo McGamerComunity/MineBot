@@ -21,7 +21,7 @@ public class Clientinfo implements commands {
     }
 
     @Override
-    public void action(String[] args, MessageReceivedEvent event) throws IOException, ParseException {
+    public void action(String[] args, MessageReceivedEvent event)  {
 
 
         User User = event.getMessage().getMentionedUsers().get(0);
