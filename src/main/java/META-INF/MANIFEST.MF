@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Class-Path: okhttp-3.8.1.jar jsr305-3.0.2.jar jna-4.4.0.jar lavaplayer
+ -common-1.0.6.jar inutils4j-0.4.jar slf4j-simple-1.7.5.jar mysql-conn
+ ector-java-8.0.8-dmr.jar nv-websocket-client-2.2.jar commons-io-2.6.j
+ ar http-endec-1.04.jar jackson-core-2.9.4.jar httpcore-nio-4.4.4.jar 
+ toml4j-0.7.2.jar httpclient-4.5.2.jar httpmime-4.5.2.jar json-2016021
+ 2.jar log4j-1.2.17.jar commons-collections4-4.1.jar commons-lang3-3.7
+ .jar httpasyncclient-4.1.1.jar trove4j-3.0.3.jar jackson-annotations-
+ 2.9.0.jar unirest-java-1.4.9.jar lavaplayer-natives-1.2.55.jar okio-1
+ .13.0.jar lavaplayer-1.2.63.jar jiphy-1.0.jar base64-2.3.9.jar slf4j-
+ log4j12-1.5.6.jar slf4j-api-1.7.25.jar commons-codec-1.9.jar commons-
+ logging-1.2.jar jsoup-1.11.2.jar commons-net-3.6.jar jspeedtest-1.32.
+ 0.jar httpcore-4.4.4.jar gson-2.8.1.jar JDA-3.6.0_358.jar jackson-dat
+ abind-2.9.4.jar mime-util-2.1.3.jar
+Main-Class: core.main
+
