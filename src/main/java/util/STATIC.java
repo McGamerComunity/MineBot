@@ -23,9 +23,9 @@ public class STATIC {
     public static String PREFIX = "mb ";
 
     public static String VERSION = "2.9 ALPHA";
-    public static final String TOKEN = "NDM3Mjg0MTc4OTUwNjE5MTQ2.Dbz0KA.SZaYALD2LsOusAtGNQWTLRYm08E";
+    public static final String TOKEN = secrets.token;
     public static String CUSTOM_MESSAGE = "By McGamer";
-    public static String LICENCE = "H00m5mmh-B5A5OMjL-EjYbSmYC-96urfO0c-A9vlKy3d-vRqF7Y7U-pALSRb92-ViwBL9Ep6a";
+    public static String LICENCE = secrets.licence;
     public static int BOT_OWNER_ID = 0;
 
     public static String GAME = PREFIX + "help | v." + VERSION + " | " + CUSTOM_MESSAGE;
