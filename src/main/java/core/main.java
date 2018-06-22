@@ -88,6 +88,7 @@ public class main {
                         .addEventListener(new OnlineListener())
                         .addEventListener(new Consolelistener())
                         .addEventListener(new SecurityListener())
+                        .addEventListener(new MuteHanlder())
                 ;
 
 
