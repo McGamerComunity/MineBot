@@ -12,6 +12,7 @@ import org.omg.CORBA.ORB;
 import util.STATIC;
 
 import javax.security.auth.login.LoginException;
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -85,6 +86,7 @@ public class main {
                         .addEventListener(new BanListener())
                         .addEventListener(new OnlineListener())
                         .addEventListener(new Consolelistener())
+                        .addEventListener(new SecurityListener())
                 ;
 
 
