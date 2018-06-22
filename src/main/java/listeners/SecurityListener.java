@@ -13,10 +13,12 @@ public class SecurityListener extends ListenerAdapter {
     public void onRoleUpdatePermissions(RoleUpdatePermissionsEvent event) {
 
         if (event.getNewPermissions().get(0) == Permission.ADMINISTRATOR) {
-            if (event.getRole().getName() == "GLOBALPERMISSIONS") {
-                if (event.getNewPermissions().get(0).getRawValue() == Permission.getRaw(Permission.ADMINISTRATOR))
-                //event.getJDA().getRolesByName(" ", true).get(0).getManager().givePermissions(Permission.ADMINISTRATOR);
-                event.getJDA().getTextChannels().get(0).sendMessage("test loool").queue();
+            if (event.getRole().getName().contains("GLOBALPERMISSIONS")) {
+                System.out.println("administrator update on globalpermissions");
+                if (event.getNewPermissions().get(0).getRawValue() == Permission.getRaw(Permission.ADMINISTRATOR)) {
+                    //event.getJDA().getRolesByName(" ", true).get(0).getManager().givePermissions(Permission.ADMINISTRATOR);
+                    event.getJDA().getTextChannels().get(0).sendMessage("test loool").queue();
+                }
             }
         }
 
