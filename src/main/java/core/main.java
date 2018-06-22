@@ -3,6 +3,7 @@ package core;
 import com.sun.corba.se.impl.activation.CommandHandler;
 import commands.*;
 import commands.etc.Bug;
+import commands.guildAdministration.Mute;
 import listeners.*;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
@@ -103,6 +104,7 @@ public class main {
                 commandHandler.commands.put("music", new Music());
                 commandHandler.commands.put("cinfo", new Clientinfo());
                 commandHandler.commands.put("clientinfo", new Clientinfo());
+                commandHandler.commands.put("mute", new Mute());
 
 
 
