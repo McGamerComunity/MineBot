@@ -20,7 +20,7 @@ public class Permlvl implements commands {
         TextChannel tc = event.getTextChannel();
 
         tc.sendMessage(MSGS.success()
-                .addField("Dein Permissionlevel:", String.valueOf(Perms.getLvl(event.getMember())),false )
+                .addField("Dein Permissionlevel:", "`" + String.valueOf(Perms.getLvl(event.getMember())) + "`",false )
                 .build()).complete();
     }
 
