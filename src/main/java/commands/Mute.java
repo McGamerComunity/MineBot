@@ -1,6 +1,7 @@
-package commands.guildAdministration;
+package commands;
 
 import commands.*;
+import core.Perms;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.*;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
@@ -99,6 +100,7 @@ public class Mute implements commands {
     @Override
     public void action(String[] args, MessageReceivedEvent event) throws ParseException, IOException {
 
+
         Guild guild = event.getGuild();
         Member author = event.getMember();
         TextChannel tc = event.getTextChannel();
@@ -109,7 +111,11 @@ public class Mute implements commands {
             return;
         }
 
-        toggle(args, msg, tc);
+        if (Perms.getLvl(event.getMember()) == 2) {
+            toggle(args, msg, tc);
+        } else {
+            tc.sendMessage(MSGS.error().setDescription(Perms.errmsg).build()).queue();
+        }
 
     }
 
