@@ -111,9 +111,9 @@ public class Mute implements commands {
             return;
         }
 
-        if (Perms.getLvl(event.getMember()) > 2) {
+        if (Perms.getLvl(event.getMember()) == 2) {
             toggle(args, msg, tc);
-        } else if (Perms.getLvl(event.getMember()) == 2) {
+        } else if (Perms.getLvl(event.getMember()) > 2) {
             toggle(args, msg, tc);
         } else {
             tc.sendMessage(MSGS.error().setDescription(Perms.errmsg).build()).queue();
