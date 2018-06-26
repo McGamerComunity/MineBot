@@ -10,15 +10,15 @@ import java.util.Date;
 public class STATIC {
 
 
-    public static final String[] PERMS = {"", "*", "Owner"};          /*PERMISSIONLEVEL 5*/
+    public static final String[] PERMS = {" ", "*", "Owner"};          /*PERMISSIONLEVEL 5*/
 
     public static final String[] PERMSA = {"Co-Owner"};          /*PERMISSIONLEVEL 4*/
 
-    public static final String[] PERMSB = {"---"};          /*PERMISSIONLEVEL 3*/
+    public static final String[] PERMSB = {"Admin"};          /*PERMISSIONLEVEL 3*/
 
-    public static final String[] PERMSC = {"---"};          /*PERMISSIONLEVEL 2*/
+    public static final String[] PERMSC = {"Teammitglied"};          /*PERMISSIONLEVEL 2*/
 
-    public static final String[] PERMSD = {"---"};          /*PERMISSIONLEVEL 1*/
+    public static final String[] PERMSD = {"Freunde"};          /*PERMISSIONLEVEL 1*/
 
     public static String PREFIX = "mb ";
 
