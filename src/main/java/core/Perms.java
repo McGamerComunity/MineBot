@@ -35,25 +35,30 @@ public class Perms {
 
     public static int getLvl(Member member) {
 
-        if (isHost(member.getUser()))
+        if (isHost(member.getUser())) {
             return 1000;
-        if (member.equals(member.getGuild().getOwner()))
+        }
+        if (member.equals(member.getGuild().getOwner())) {
             return 999;
+        }
 
-        if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMS).anyMatch(s1 -> role.getId().equals(s1)))) {
+        if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMS).anyMatch(s5 -> role.getId().equals(s5)))) {
             return 5;
-        } else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSA).anyMatch(s -> role.getId().equals(s)))) {
+        }
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSA).anyMatch(s4 -> role.getId().equals(s4)))) {
             return 4;
         }
-        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSB).anyMatch(s -> role.getId().equals(s)))) {
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSB).anyMatch(s3 -> role.getId().equals(s3)))) {
             return 3;
         }
-        if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSC).anyMatch(s1 -> role.getId().equals(s1)))) {
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSC).anyMatch(s2 -> role.getId().equals(s2)))) {
             return 2;
-        } else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSD).anyMatch(s -> role.getId().equals(s)))) {
-            return 1;
         }
-        return 0;
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSD).anyMatch(s1 -> role.getId().equals(s1)))) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 
     public static boolean check(int required, MessageReceivedEvent event) {

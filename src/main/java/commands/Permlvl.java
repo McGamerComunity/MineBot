@@ -5,6 +5,7 @@ import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import util.MSGS;
+import util.STATIC;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -20,6 +21,7 @@ public class Permlvl implements commands {
         TextChannel tc = event.getTextChannel();
 
         tc.sendMessage(MSGS.success()
+                .setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId()), event.getMember().getUser().getEffectiveAvatarUrl())
                 .addField("Dein Permissionlevel:", "`" + String.valueOf(Perms.getLvl(event.getMember())) + "`",false )
                 .build()).complete();
     }
