@@ -105,6 +105,7 @@ public class main {
                 commandHandler.commands.put("cinfo", new Clientinfo());
                 commandHandler.commands.put("clientinfo", new Clientinfo());
                 commandHandler.commands.put("mute", new Mute());
+                commandHandler.commands.put("plevel", new Permlvl());
 
 
 
