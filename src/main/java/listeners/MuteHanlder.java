@@ -15,7 +15,7 @@ public class MuteHanlder extends ListenerAdapter {
     public void onMessageReceived(MessageReceivedEvent e) {
 
         User sender = e.getAuthor();
-        HashMap<String, String> mutes = commands.guildAdministration.Mute.getMuted();
+        HashMap<String, String> mutes = commands.Mute.getMuted();
 
         if (mutes.containsKey(sender.getId())) {
             sender.openPrivateChannel().queue(pc -> pc.sendMessage(
