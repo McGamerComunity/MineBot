@@ -23,7 +23,7 @@ public class STATIC {
 
     public static String PREFIX = "mb ";
 
-    public static String VERSION = "2.9 ALPHA";
+    public static String VERSION = "2.10 ALPHA";
     public static String TOKEN = secrets.token;
     public static String CUSTOM_MESSAGE = "By McGamer";
     public static String LICENCE = secrets.licence;
