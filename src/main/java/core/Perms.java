@@ -14,14 +14,11 @@ import java.util.Arrays;
 
 import static com.sun.xml.internal.ws.api.model.wsdl.WSDLBoundOperation.ANONYMOUS.required;
 
-/**
- * Created by zekro on 30.04.2017 / 21:10
- * DiscordBot/core
- * © zekro 2017
- */
 
 public class Perms {
 
+
+    public static String errmsg = ":warning: You don't have enaugh permissions to execute this command";
 
     public static boolean isHost(User user) {
         return Long.parseLong(user.getId()) == STATIC.BOT_OWNER_ID;
