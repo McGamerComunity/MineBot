@@ -18,7 +18,7 @@ public class CommandListener extends ListenerAdapter {
             event.getMessage().delete().queue();
 
         } else {
-            if (event.getMessage().getAuthor().getId() != event.getJDA().getSelfUser().getId()) {
+            if (!event.getMessage().getContentRaw().startsWith(STATIC.PREFIX) && event.getMessage().getAuthor().getId() != event.getJDA().getSelfUser().getId()) {
                 System.out.println("[MESSAGE] " + event.getMessage().getJDA().getGuilds().get(0).getName() + " - " + event.getTextChannel().getName() + " " + event.getMember().getUser().getName() + ": " + event.getMessage().getContentRaw());
             }
         }
