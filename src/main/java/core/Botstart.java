@@ -19,7 +19,7 @@ import java.util.HashMap;
 
 public class Botstart {
     public static final commandHandler parser = new commandHandler();
-    static JDABuilder builder;
+    public static JDABuilder builder;
 
     public static JDA jda;
 

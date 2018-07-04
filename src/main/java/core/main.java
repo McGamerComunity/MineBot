@@ -4,6 +4,7 @@ import com.sun.corba.se.impl.activation.CommandHandler;
 import commands.*;
 import commands.etc.Bug;
 import listeners.*;
+import net.dv8tion.jda.client.entities.Application;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
@@ -23,7 +24,7 @@ public class main {
     public static final commandHandler parser = new commandHandler();
 
 
-    public static void main(String[] Args) throws InterruptedException, IOException {
+    public static void main(String[] Args) throws InterruptedException, IOException, LoginException {
         System.out.println("MINEBOT CONSOLE\nTYPE 'help' FOR HELP\n");
 
         while (true) {
@@ -43,6 +44,7 @@ public class main {
             if (s.startsWith("start")) {
                 System.out.println("starting the bot");
                 Botstart.main(null);
+            }
 
                 if (s.startsWith("help")) {
                     System.out.println(
@@ -95,14 +97,7 @@ public class main {
                             } catch (IOException e) {
                                 e.printStackTrace();
                             }
-                            JDABuilder builder = new JDABuilder(AccountType.BOT);
                             System.out.println("MESSAGE SEND IN CHANNEL: '" + chan + "' WITH CONTENT: '" + msg + "'");
-                            try {
-                                builder.setToken(STATIC.TOKEN);
-                                builder.buildBlocking().getTextChannelsByName(chan, true).get(0).sendMessage(msg).queue();
-                            } catch (LoginException e) {
-                                e.printStackTrace();
-                            }
                         }
 
                         if (chat.startsWith("exit")) {
@@ -115,6 +110,5 @@ public class main {
             }
         }
     }
-}
 
 
