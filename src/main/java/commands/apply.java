@@ -1,16 +1,12 @@
 package commands;
 
-import core.Perms;
-import net.dv8tion.jda.core.entities.TextChannel;
-import net.dv8tion.jda.core.entities.User;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import util.MSGS;
-import util.STATIC;
 
 import java.io.IOException;
 import java.text.ParseException;
 
-public class Permlvl implements commands {
+public class apply implements commands {
     @Override
     public boolean called(String[] args, MessageReceivedEvent event) {
         return false;
@@ -18,12 +14,9 @@ public class Permlvl implements commands {
 
     @Override
     public void action(String[] args, MessageReceivedEvent event) throws IOException, ParseException {
-        TextChannel tc = event.getTextChannel();
 
-        tc.sendMessage(MSGS.success()
-                .setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getMember().getUser().getEffectiveAvatarUrl())
-                .addField("Dein Permissionlevel:", "`" + String.valueOf(Perms.getLvl(event.getMember())) + "`",false )
-                .build()).complete();
+        event.getTextChannel().sendMessage(MSGS.success().addField("Du kannst dich unter folgender E-Mail bewerben:","apply@ragefx.de" , true).build()).complete();
+
     }
 
     @Override

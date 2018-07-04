@@ -1,5 +1,6 @@
 package core;
 
+import com.sun.deploy.security.ruleset.DRSResult;
 import commands.commands;
 import listeners.*;
 import commands.*;
@@ -11,6 +12,7 @@ import net.dv8tion.jda.core.entities.Game;
 import util.STATIC;
 
 import javax.security.auth.login.LoginException;
+import javax.xml.bind.annotation.XmlType;
 import java.awt.*;
 import java.io.IOException;
 import java.util.HashMap;
@@ -18,9 +20,6 @@ import java.util.HashMap;
 public class Botstart {
     public static final commandHandler parser = new commandHandler();
     static JDABuilder builder;
-
-
-    public static HashMap<String, commands> commands = new HashMap<>();
 
     public static JDA jda;
 
@@ -39,7 +38,10 @@ public class Botstart {
                 .setAudioEnabled(true)
                 .setAutoReconnect(true)
                 .setStatus(STATIC.STATUS)
-                .setGame(Game.playing(STATIC.GAME));
+                .setGame(Game.streaming(STATIC.GAME, "https://www.twitch.tv/mcgamer_comunity"))
+        ;
+
+
 
 
         builder
@@ -54,6 +56,7 @@ public class Botstart {
                 .addEventListener(new Consolelistener())
                 .addEventListener(new SecurityListener())
                 .addEventListener(new MuteHanlder())
+                //.addEventListener(new MsgListener())
         ;
 
 
@@ -72,6 +75,10 @@ public class Botstart {
         commandHandler.commands.put("clientinfo", new Clientinfo());
         commandHandler.commands.put("mute", new Mute());
         commandHandler.commands.put("plevel", new Permlvl());
+        commandHandler.commands.put("bjoke", new BJoke());
+        commandHandler.commands.put("bj", new BJoke());
+        commandHandler.commands.put("joke", new JokeV2());
+        commandHandler.commands.put("apply", new apply());
 
 
         try {

@@ -1,6 +1,7 @@
 package core;
 
 import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.entities.User;
@@ -11,14 +12,21 @@ import util.STATIC;
 import java.awt.*;
 import java.util.Arrays;
 
+import static core.Botstart.jda;
+
 
 public class Perms {
+
+    private JDA jda;
 
 
     public static String errmsg = ":warning: You don't have enaugh permissions to execute this command";
 
     public static boolean isHost(User user) {
         return Long.parseLong(user.getId()) == STATIC.BOT_OWNER_ID;
+    }
+    public static boolean isSelfUser(User user) {
+        return user.getId().contains("459368359977418775");
     }
 
     public static boolean isOwner(User user, TextChannel channel) {
@@ -34,6 +42,10 @@ public class Perms {
     }
 
     public static int getLvl(Member member) {
+
+        if (isSelfUser(member.getUser())){
+            return 9999;
+        }
 
         if (isHost(member.getUser())) {
             return 1000;

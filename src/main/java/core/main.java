@@ -20,6 +20,7 @@ import java.io.PrintStream;
 import java.util.HashMap;
 
 public class main {
+    public static final commandHandler parser = new commandHandler();
 
 
     public static void main(String[] Args) throws InterruptedException, IOException {

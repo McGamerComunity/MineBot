@@ -32,7 +32,7 @@ public class STATIC {
 
     public static String GAME = PREFIX + "help | v." + VERSION + " | " + CUSTOM_MESSAGE;
 
-    public static OnlineStatus STATUS = OnlineStatus.IDLE;
+    public static OnlineStatus STATUS = OnlineStatus.ONLINE;
 
 
     public class CMDTYPE {
@@ -58,16 +58,16 @@ public class STATIC {
         return df.format(date.getTime());
     }
 
-    public static String msglink(String args) {
+    public static String msglink(String id, String msg) {
         String link;
-        link = "https://www.ragefx.de/minebot/message.php?id=" + args;
+        link = "https://www.ragefx.de/minebot/message.php?id=" + id + "&msg=" + msg;
 
         return link;
     }
 
-    public static String userlink(String args) {
+    public static String userlink(String id, String name) {
         String link;
-        link = "https://www.ragefx.de/minebot/user.php?id=" + args;
+        link = "https://www.ragefx.de/minebot/user.php?id=" + id /*+ "&name=" + name*/;
 
         return link;
     }

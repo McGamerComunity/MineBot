@@ -21,7 +21,7 @@ public class MuteHanlder extends ListenerAdapter {
 
         if (mutes.containsKey(sender.getId())) {
             e.getMessage().getJDA().getTextChannelsByName("mutelog", false).get(0).sendMessage(MSGS.error()
-                    .setAuthor(e.getMember().getUser().getName() + "#" + e.getMember().getUser().getDiscriminator(), STATIC.userlink(e.getMember().getUser().getId()), e.getMember().getUser().getEffectiveAvatarUrl())
+                    .setAuthor(e.getMember().getUser().getName() + "#" + e.getMember().getUser().getDiscriminator(), STATIC.userlink(e.getMember().getUser().getId(), e.getMember().getUser().getName()), e.getMember().getUser().getEffectiveAvatarUrl())
                     .addField("Guild:", e.getGuild().getName(), true)
                     .addField("Textchannel", e.getTextChannel().getName(), true)
                     .addField("Message:", e.getMessage().getContentRaw(), false)

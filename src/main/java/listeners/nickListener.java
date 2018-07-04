@@ -33,7 +33,7 @@ public class nickListener extends ListenerAdapter {
         event.getGuild().getTextChannelsByName("namelog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0x7D0FDD)).setDescription(
                 "hat seinen Nickname von `" + event.getPrevNick() + "` zu: `" + event.getNewNick() + "` geändert."
         ).setFooter(STATIC.getTime(),null)
-                .setAuthor(event.getMember().getUser().getName(), null , event.getMember().getUser().getAvatarUrl())
+                .setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getMember().getUser().getAvatarUrl())
                 .build()).queue();
 
     }
@@ -41,7 +41,7 @@ public class nickListener extends ListenerAdapter {
         event.getJDA().getTextChannelsByName("namelog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0xFFFF00)).setDescription(
                 "hat seinen Discordnamen von `" + event.getOldName() + "` zu: `" + event.getNewName() + "` geändert."
         ).setFooter(STATIC.getTime(),null)
-                .setAuthor(event.getUser().getName(), null , event.getUser().getAvatarUrl())
+                .setAuthor(event.getUser().getName(), STATIC.userlink(event.getUser().getId(), event.getUser().getName()), event.getUser().getAvatarUrl())
                 .build()).queue();
     }
 

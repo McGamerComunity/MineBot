@@ -19,7 +19,7 @@ public class OnlineListener extends ListenerAdapter {
             event.getJDA().getTextChannelsByName("onlinelog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0x15D200))
                     .setDescription("hat sein onlinestatus von `" + event.getOldOnlineStatus() + "` zu: `" + event.getNewOnlineStatus() + "`")
                     .setFooter(STATIC.getTime(), null)
-                    .setAuthor(event.getUser().getName(), null, event.getUser().getAvatarUrl())
+                    .setAuthor(event.getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getUser().getAvatarUrl())
                     .build()).queue();
 
         }
@@ -30,7 +30,7 @@ public class OnlineListener extends ListenerAdapter {
             event.getJDA().getTextChannelsByName("onlinelog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0xD2C900))
                     .setDescription("hat sein onlinestatus von `" + event.getOldOnlineStatus() + "` zu: `" + event.getNewOnlineStatus() + "`")
                     .setFooter(STATIC.getTime(),null)
-                    .setAuthor(event.getUser().getName(), null , event.getUser().getAvatarUrl())
+                    .setAuthor(event.getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getUser().getAvatarUrl())
                     .build()).queue();
 
         }
@@ -40,7 +40,7 @@ public class OnlineListener extends ListenerAdapter {
             event.getJDA().getTextChannelsByName("onlinelog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0xD2000C))
                     .setDescription("hat sein onlinestatus von `" + event.getOldOnlineStatus() + "` zu: `" + event.getNewOnlineStatus() + "`")
                     .setFooter(STATIC.getTime(),null)
-                    .setAuthor(event.getUser().getName(), null , event.getUser().getAvatarUrl())
+                    .setAuthor(event.getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getUser().getAvatarUrl())
                     .build()).queue();
 
         }
@@ -50,7 +50,7 @@ public class OnlineListener extends ListenerAdapter {
             event.getJDA().getTextChannelsByName("onlinelog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0x595959))
                     .setDescription("hat sein onlinestatus von `" + event.getOldOnlineStatus() + "` zu: `" + event.getNewOnlineStatus() + "`")
                     .setFooter(STATIC.getTime(),null)
-                    .setAuthor(event.getUser().getName(), null , event.getUser().getAvatarUrl())
+                    .setAuthor(event.getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getUser().getAvatarUrl())
                     .build()).queue();
 
         }

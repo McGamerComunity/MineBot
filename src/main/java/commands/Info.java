@@ -25,7 +25,6 @@ public class Info implements commands {
                 .addField("Libraries and Dependencies", " -  JDA  *(https://github.com/DV8FromTheWorld/JDA)*\n -  Toml4J  *(https://github.com/mwanji/toml4j)*\n -  lavaplayer  *(https://github.com/sedmelluq/lavaplayer)*\n -  Steam-Condenser  *(https://github.com/koraktor/steam-condenser-java)*", false)
                 .addField("Bug Reporting / Idea Suggestion", "If you got some bugs, please contact me here:\n - Please use this document to report a Bug or suggest an idea: mcgamer_comunity#8073@discordmail.com\n -  E-Mail: mcgamer_comunity#8073@discordmail.com\n -  Discord:  https://discord.gg/pUh9XEh (or directly: `\uD83D\uDD30 McGamer_Comunity \uD83D\uDD30#8073`)", false)
                 .addField("HELPER:", "RaphA 03(RaphA 03#1226)", true)
-                .addField("DESINGER:", "TheVoidNebula(\uD83C\uDF1FTheVoidNebula\uD83C\uDF1F#7394)", true)
                 .build())).queue();
     }
 

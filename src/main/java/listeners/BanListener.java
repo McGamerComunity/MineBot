@@ -17,7 +17,7 @@ public class BanListener extends ListenerAdapter {
         event.getGuild().getTextChannelsByName("banlog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0xDD1324)).setDescription(
                 ":no_entry_sign: was Banned"
         ).setFooter(STATIC.getTime(),null)
-                .setAuthor(event.getUser().getName(), null, event.getUser().getAvatarUrl())
+                .setAuthor(event.getUser().getName(), STATIC.userlink(event.getUser().getId(), event.getUser().getName()), event.getUser().getAvatarUrl())
                 .build()).queue();
     }
 
@@ -25,7 +25,7 @@ public class BanListener extends ListenerAdapter {
         event.getGuild().getTextChannelsByName("banlog", true).get(0).sendMessage(new EmbedBuilder().setColor(new Color(0x07DD09)).setDescription(
                 ":white_check_mark: was Unbanned"
         ).setFooter(STATIC.getTime(),null)
-                .setAuthor(event.getUser().getName(), null, event.getUser().getAvatarUrl())
+                .setAuthor(event.getUser().getName(), STATIC.userlink(event.getUser().getId(), event.getUser().getName()), event.getUser().getAvatarUrl())
                 .build()).queue();
     }
 
