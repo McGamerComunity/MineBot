@@ -7,6 +7,7 @@ import net.dv8tion.jda.core.entities.Game;
 
 import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.stream.Stream;
@@ -40,10 +41,12 @@ public class STATIC {
 
     public static OnlineStatus STATUS = OnlineStatus.ONLINE;
 
+    public static int SERVER_LIMIT = 10;
+
     public static String input;
 
 
-    public static int music_volume = 10;
+    public static int music_volume = 15;
     public static String musicChannel = "RageRadio";
 
 
@@ -62,6 +65,10 @@ public class STATIC {
     public static String SQL_USER = "";
     public static String SQL_PASS = "";
     public static String SQL_DB = "";
+
+    public static ArrayList<ArrayList<String>> cmdLog = new ArrayList<>();
+
+    public static boolean commandConsoleOutout = true;
 
 
     public static String getTime() {

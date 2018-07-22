@@ -1,3 +1,14 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
 package commands;
 
 import audioCore.AudioInfo;
@@ -388,6 +399,10 @@ public class Music implements commands {
 
                     case "help":
                         sendHelpMessage(event);
+                        break;
+
+                    case "test":
+                        event.getTextChannel().sendMessage("TEST!" + args[0] + args[1]);
                         break;
 
 

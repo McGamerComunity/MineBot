@@ -10,18 +10,24 @@
  */
 
 
-package listeners;
+package core;
 
+import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import util.STATIC;
 
-public class AFKlistener extends ListenerAdapter {
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
 
-    public void onMessageReceived(MessageReceivedEvent event) {
-        if (event.getMessage().getContentRaw().startsWith(STATIC.PREFIX) && event.getMessage().getAuthor().getId() != event.getJDA().getSelfUser().getId()) {
+public class CoreCommands {
 
-        }
+    public static String getCurrentSystemTime() {
+        DateFormat dateFormat = new SimpleDateFormat("[dd.MM.yyyy - HH:mm:ss]");
+        Date date = new Date();
+
+        return dateFormat.format(date);
     }
-
 }

@@ -1,12 +1,22 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
 
 package listeners;
 
-import core.commandHandler;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.PrivateChannel;
 import net.dv8tion.jda.core.events.message.priv.PrivateMessageReceivedEvent;
+import net.dv8tion.jda.core.events.message.react.MessageReactionAddEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
-import util.STATIC;
 
 import java.awt.*;
 import java.io.BufferedWriter;
@@ -24,7 +34,7 @@ public class privateMessageListener extends ListenerAdapter {
 
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event) {
 
-        final File file = new File( event.getAuthor().getId() + ".dat");
+        final File file = new File( "USERS/" + event.getAuthor().getId() + "/mcname.dat");
 
         if (event.getMessage().getContentRaw().startsWith("token_"))
             return;
@@ -63,12 +73,33 @@ public class privateMessageListener extends ListenerAdapter {
 
         if (event.getMessage().getContentRaw().startsWith("-register")) {
 
+            File users_dir = new File("USERS/" + event.getAuthor().getId());
+            if (!users_dir.exists() || !users_dir.isDirectory()) {
+                System.out.println(
+                        users_dir.mkdir() ? "[INFO] Path \"" + event.getAuthor().getId() + "\" successfully created!" : "[ERROR] Failed to create path \"" + event.getAuthor().getId() + "\"!"
+                );
+            }
+
             try {
                 new File(String.valueOf(file)).createNewFile();
 
                 BufferedWriter br = new BufferedWriter(new FileWriter(file));
 
-                br.write(event.getMessage().getContentRaw().replace("-register", ""));
+                br.write(event.getMessage().getContentRaw().replace("-register ", ""));
+                br.flush();
+                br.close();
+
+                PrivateChannel pc = event.getAuthor().openPrivateChannel().complete();
+
+                event.getJDA().getGuildById("402526922439000068").getController().addRolesToMember(event.getJDA().getGuildById("402526922439000068").getMemberById(event.getAuthor().getId()), event.getJDA().getGuildById("402526922439000068").getRolesByName("Registered", true)).queue();
+
+                pc.sendMessage("You are Registered with Minecraftname: " + event.getMessage().getContentRaw().replace("-register", "")).queue();
+
+                PrivateChannel mcpc = event.getJDA().getUserById("273115881960374272").openPrivateChannel().complete();
+
+                mcpc.sendMessage("The User: `" + event.getAuthor().getName() + "` (" +event.getAuthor().getId() + ") is now registered with following minecraft name: `" + event.getMessage().getContentRaw().replace("-register", "") + "`").queue();
+
+
 
             } catch (IOException e) {
                 e.printStackTrace();

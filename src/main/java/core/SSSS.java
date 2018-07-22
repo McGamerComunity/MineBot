@@ -1,3 +1,15 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
+
 package core;
 
 import net.dv8tion.jda.core.EmbedBuilder;
@@ -53,10 +65,7 @@ public class SSSS /* Stands for "SERVER SPECIFIC SETTINGS SYSTEM" :^) */ {
     }
 
     public static String getPREFIX(Guild guild) {
-        String out = Botstart.getMySql().getString("guilds", "prefix", "id", guild.getId());
-        if (out == null)
             return STATIC.PREFIX;
-        return out;
     }
 
     public static void setPREFIX(String entry, Guild guild) {

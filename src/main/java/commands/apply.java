@@ -1,7 +1,19 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
 package commands;
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import util.MSGS;
+import util.STATIC;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -41,12 +53,12 @@ public class apply implements commands {
 
     @Override
     public String description() {
-        return null;
+        return "apply informations";
     }
 
     @Override
     public String commandType() {
-        return null;
+        return STATIC.CMDTYPE.etc;
     }
 
     @Override

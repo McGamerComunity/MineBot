@@ -1,7 +1,19 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
 package commands;
 
 import net.dv8tion.jda.core.entities.PrivateChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+import util.STATIC;
 
 import java.io.IOException;
 import java.text.ParseException;
@@ -15,7 +27,7 @@ public class register implements commands {
     @Override
     public void action(String[] args, MessageReceivedEvent event) throws IOException, ParseException {
         PrivateChannel pc = event.getMember().getUser().openPrivateChannel().complete();
-        pc.sendMessage("to register send me your minecraftname with: `register <your minecraftname>`").queue();
+        pc.sendMessage("to register send me per private chat your minecraftname with: `-register <your minecraftname>`").queue();
         event.getTextChannel().sendMessage(event.getAuthor().getAsMention() + "ive send you the instrictions per privechat").queue();
     }
 
@@ -36,12 +48,12 @@ public class register implements commands {
 
     @Override
     public String description() {
-        return null;
+        return "connects you with your minecraftaccount";
     }
 
     @Override
     public String commandType() {
-        return null;
+        return STATIC.CMDTYPE.etc;
     }
 
     @Override

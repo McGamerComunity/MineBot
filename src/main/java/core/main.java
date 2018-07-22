@@ -1,3 +1,15 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
+
 package core;
 
 import com.sun.corba.se.impl.activation.CommandHandler;
@@ -21,7 +33,6 @@ import java.io.PrintStream;
 import java.util.HashMap;
 
 public class main {
-    public static final commandHandler parser = new commandHandler();
 
 
     public static void main(String[] Args) throws InterruptedException, IOException, LoginException {

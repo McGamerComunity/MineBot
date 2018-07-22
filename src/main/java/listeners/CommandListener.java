@@ -13,13 +13,13 @@ public class CommandListener extends ListenerAdapter {
 
 
     public void onMessageReceived(MessageReceivedEvent event) {
-
+/**
         //System.out.println(event.getTextChannel().getName() + " " + event.getMember().getUser().getName() + ": " + event.getMessage().getContentRaw());
 
         if (event.getChannelType() != ChannelType.PRIVATE) {
 
         if (event.getMessage().getContentRaw().startsWith(STATIC.PREFIX) && event.getMessage().getAuthor().getId() != event.getJDA().getSelfUser().getId()) {
-            commandHandler.handleCommand(commandHandler.parse.parse(event.getMessage().getContentRaw(), event));
+            CommandParser.handleCommand(CommandParser.parse.parse(event.getMessage().getContentRaw(), event));
             System.out.println("[COMMAND] " + event.getMessage().getJDA().getGuilds().get(0).getName() + " - " + event.getTextChannel().getName() + " " + event.getMember().getUser().getName() + ": " + event.getMessage().getContentRaw());
             event.getMessage().delete().queue();
             event.getMessage().getJDA().getTextChannelsByName("commandlog", true).get(0).sendMessage(new EmbedBuilder()
@@ -38,6 +38,6 @@ public class CommandListener extends ListenerAdapter {
 
     }
 
-
+*/
     }
 }

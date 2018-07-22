@@ -1,3 +1,16 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
+
+
 package listeners;
 
 import core.SSSS;
@@ -60,7 +73,7 @@ public class VoiceListener extends ListenerAdapter {
         if (event.getMember().getUser().isBot() == false) {
             pc.sendMessage(
                     "**Hey,** " + event.getMember().getAsMention() + " **and welcome on the " + event.getGuild().getName() + " Discord server!**   :wave:\n\n" +
-                            "You have to react with :white_check_mark: to the rules to get the Spieler role.\n\n"
+                            "You have to react in #rules-regeln with :white_check_mark: to the rules to get the Spieler role.\n\n"
             ).queue();
         } else {
             event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRolesByName("Bot", true)).queue();

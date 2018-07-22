@@ -1,9 +1,21 @@
+/**
+ .___  ___.   ______   _______      ___      .___  ___.  _______ .______
+ |   \/   |  /      | /  _____|    /   \     |   \/   | |   ____||   _  \
+ |  \  /  | |  ,----'|  |  __     /  ^  \    |  \  /  | |  |__   |  |_)  |
+ |  |\/|  | |  |     |  | |_ |   /  /_\  \   |  |\/|  | |   __|  |      /
+ |  |  |  | |  `----.|  |__| |  /  _____  \  |  |  |  | |  |____ |  |\  \----.
+ |__|  |__|  \______| \______| /__/     \__\ |__|  |__| |_______|| _| `._____|
+
+ (c) 2014-2018
+ */
+
 package commands;
 
         import core.permsCore;
         import net.dv8tion.jda.core.EmbedBuilder;
         import net.dv8tion.jda.core.entities.User;
         import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
+        import util.STATIC;
 
         import java.awt.*;
 
@@ -19,6 +31,8 @@ public class BotSay implements commands
 
 
         String msg = String.join(" ", args);
+
+        event.getMessage().delete().queue();
 
         if (msg == "") {
             event.getTextChannel().sendMessage(new EmbedBuilder().setColor(new Color(0xBE171F))
@@ -46,12 +60,12 @@ public class BotSay implements commands
 
     @Override
     public String description() {
-        return null;
+        return "Says something as the bot";
     }
 
     @Override
     public String commandType() {
-        return null;
+        return STATIC.CMDTYPE.administration;
     }
 
     @Override
