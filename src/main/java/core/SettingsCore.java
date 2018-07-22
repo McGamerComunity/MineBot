@@ -60,7 +60,7 @@ public class SettingsCore {
 
             STATIC.TOKEN           = obj.getString("token");
             STATIC.PREFIX          = obj.getString("prefix");
-            STATIC.BOT_OWNER_ID    = (int) Long.parseLong(obj.getString("ownerid"));
+            STATIC.BOT_OWNER_ID    = obj.getString("ownerid");
             STATIC.UPDATEINFO      = Boolean.parseBoolean(obj.getString("updateinfo"));
 
             JSONObject mysql = obj.getJSONObject("mysql");

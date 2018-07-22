@@ -2,6 +2,7 @@ package commands;
 
 import com.sun.prism.paint.Color;
 import net.dv8tion.jda.core.EmbedBuilder;
+import net.dv8tion.jda.core.entities.PrivateChannel;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import util.STATIC;
 import core.permsCore;
@@ -34,7 +35,10 @@ public class Help implements commands {
                 .addField("DEBUG", "---\n", false)
                 .addField("INFORMATION","**about/info** shows informations about the bot _[lvl.0]_\n**versionlog/changelog** shows the changelog _[lvl.0]_\nBOTPREFIX: `" + prefix + "`" , false)
                 .build()).queue();
+
+
     }
+
 
     @Override
     public void executet(boolean sucess, MessageReceivedEvent event) {

@@ -48,7 +48,7 @@ public class main {
 
                 if (s.startsWith("help")) {
                     System.out.println(
-                            "############################## HELP ##############################\n" +
+                                    "############################## HELP ##############################\n" +
                                     "#                                                                #\n" +
                                     "#  licence ---------- shows your licencekey                      #\n" +
                                     "#                                                                #\n" +
@@ -73,7 +73,7 @@ public class main {
                         }
                         if (chat.startsWith("help")) {
                             System.out.println(
-                                    "############################## HELP ##############################\n" +
+                                            "############################## HELP ##############################\n" +
                                             "#                                                                #\n" +
                                             "#  send ------------- sends an chatmessage                       #\n" +
                                             "#                                                                #\n" +

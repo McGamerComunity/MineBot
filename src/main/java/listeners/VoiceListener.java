@@ -48,8 +48,8 @@ public class VoiceListener extends ListenerAdapter {
     }
 
     public void onGuildMemberLeave(GuildMemberLeaveEvent event){
-        event.getGuild().getTextChannelsByName("joinleave", true).get(0).sendMessage(new EmbedBuilder().setColor(Color.red).setDescription(":x: hat den Server verlassen").setFooter(STATIC.getTime(),null).setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getMember().getUser().getAvatarUrl()).build()).queue();
-        event.getGuild().getTextChannelsByName("chat", true).get(0).sendMessage(new EmbedBuilder().setColor(Color.red).setDescription(":x: hat den Server verlassen").setFooter(STATIC.getTime(),null).setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getMember().getUser().getAvatarUrl()).build()).queue();
+        event.getGuild().getTextChannelsByName("joinleave", true).get(0).sendMessage(new EmbedBuilder().setColor(Color.red).setDescription(":x: " + event.getMember().getAsMention() + " hat den Server verlassen").setFooter(STATIC.getTime(),null).setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getMember().getUser().getAvatarUrl()).build()).queue();
+        event.getGuild().getTextChannelsByName("chat", true).get(0).sendMessage(new EmbedBuilder().setColor(Color.red).setDescription(":x: " + event.getMember().getAsMention() + " hat den Server verlassen").setFooter(STATIC.getTime(),null).setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getMember().getUser().getAvatarUrl()).build()).queue();
 
 
     }
@@ -60,10 +60,8 @@ public class VoiceListener extends ListenerAdapter {
         if (event.getMember().getUser().isBot() == false) {
             pc.sendMessage(
                     "**Hey,** " + event.getMember().getAsMention() + " **and welcome on the " + event.getGuild().getName() + " Discord server!**   :wave:\n\n" +
-                            "You automatically got assigned the server role `" + /*SSSS.getAUTOROLE(event.getGuild())*/"Spieler" + "` by me.\n\n" +
-                            "Now, have a nice day and a lot of fun on the server! ;)"
+                            "You have to react with :white_check_mark: to the rules to get the Spieler role.\n\n"
             ).queue();
-            event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRolesByName("Spieler", true)).queue();
         } else {
             event.getGuild().getController().addRolesToMember(event.getMember(), event.getGuild().getRolesByName("Bot", true)).queue();
         }
@@ -77,7 +75,7 @@ public class VoiceListener extends ListenerAdapter {
                 .build()).queue();
 
         event.getGuild().getTextChannelsByName("chat", true).get(0).sendMessage(new EmbedBuilder().setColor(Color.green).setDescription(
-                ":white_check_mark: Willkommen auf dem **"+ event.getGuild().getName() +"**"
+                ":white_check_mark: Willkommen " + event.getMember().getAsMention() + " auf dem **"+ event.getGuild().getName() +"**"
         ).setFooter(STATIC.getTime(),null)
                 .setAuthor(event.getMember().getUser().getName(), STATIC.userlink(event.getMember().getUser().getId(), event.getMember().getUser().getName()), event.getMember().getUser().getAvatarUrl())
                 .build()).queue();

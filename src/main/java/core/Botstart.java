@@ -29,7 +29,7 @@ public class Botstart {
 
         SettingsCore.loadSettings();
 
-//        mySql = new MySql(STATIC.SQL_HOST, STATIC.SQL_PORT, STATIC.SQL_USER, STATIC.SQL_PASS, STATIC.SQL_DB).initialize();
+        //mySql = new MySql(STATIC.SQL_HOST, STATIC.SQL_PORT, STATIC.SQL_USER, STATIC.SQL_PASS, STATIC.SQL_DB).initialize();
 
         JDABuilder builder = new JDABuilder(AccountType.BOT);
 
@@ -38,7 +38,7 @@ public class Botstart {
                 .setAudioEnabled(true)
                 .setAutoReconnect(true)
                 .setStatus(STATIC.STATUS)
-                .setGame(Game.streaming(STATIC.GAME, "https://www.twitch.tv/mcgamer_comunity"))
+                .setGame(Game.streaming(STATIC.GAME + STATIC.CUSTOM_MESSAGE, "https://www.twitch.tv/mcgamer_comunity"))
         ;
 
 
@@ -56,7 +56,8 @@ public class Botstart {
                 .addEventListener(new Consolelistener())
                 .addEventListener(new SecurityListener())
                 .addEventListener(new MuteHanlder())
-                //.addEventListener(new MsgListener())
+                //.addEventListener(new MsgListener());
+                .addEventListener(new RuleListener());
         ;
 
 
@@ -71,14 +72,18 @@ public class Botstart {
         commandHandler.commands.put("versionlog", new Versionlog());
         commandHandler.commands.put("changelog", new Versionlog());
         commandHandler.commands.put("music", new Music());
-        commandHandler.commands.put("cinfo", new Clientinfo());
-        commandHandler.commands.put("clientinfo", new Clientinfo());
+        commandHandler.commands.put("m", new Music());
+        commandHandler.commands.put("cinfo", new UserInfo());
+        commandHandler.commands.put("clientinfo", new UserInfo());
         commandHandler.commands.put("mute", new Mute());
         commandHandler.commands.put("plevel", new Permlvl());
         commandHandler.commands.put("bjoke", new BJoke());
         commandHandler.commands.put("bj", new BJoke());
         commandHandler.commands.put("joke", new JokeV2());
         commandHandler.commands.put("apply", new apply());
+        commandHandler.commands.put("ri", new ri());
+        commandHandler.commands.put("serverinfo", new serverinfo());
+        commandHandler.commands.put("register", new register());
 
 
         try {

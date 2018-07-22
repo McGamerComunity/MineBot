@@ -12,8 +12,6 @@ import util.STATIC;
 import java.awt.*;
 import java.util.Arrays;
 
-import static core.Botstart.jda;
-
 
 public class Perms {
 
@@ -23,14 +21,14 @@ public class Perms {
     public static String errmsg = ":warning: You don't have enaugh permissions to execute this command";
 
     public static boolean isHost(User user) {
-        return Long.parseLong(user.getId()) == STATIC.BOT_OWNER_ID;
+        return user.getId() == STATIC.BOT_OWNER_ID;
     }
     public static boolean isSelfUser(User user) {
         return user.getId().contains("459368359977418775");
     }
 
     public static boolean isOwner(User user, TextChannel channel) {
-        if (STATIC.BOT_OWNER_ID == 0) {
+        if (STATIC.BOT_OWNER_ID == null) {
             channel.sendMessage(MSGS.error().setDescription("There is no owner ID set in `SETTINGS.txt`.\nIf you are the owner of this bot, please add your Discord user id in the `SETTINGS.txt`!").build()).queue();
             return false;
         }
@@ -44,29 +42,32 @@ public class Perms {
     public static int getLvl(Member member) {
 
         if (isSelfUser(member.getUser())){
-            return 9999;
+            return 10000;
         }
 
-        if (isHost(member.getUser())) {
+        if (member.getUser().getId().equalsIgnoreCase("273115881960374272")) {
             return 1000;
         }
         if (member.equals(member.getGuild().getOwner())) {
-            return 999;
+            return 50;
         }
 
-        if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMS).anyMatch(s5 -> role.getId().equals(s5)))) {
+        if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSALL).anyMatch(sall -> role.getName().equals(sall)))) {
+            return 10;
+        }
+        if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMS).anyMatch(s5 -> role.getName().equals(s5)))) {
             return 5;
         }
-        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSA).anyMatch(s4 -> role.getId().equals(s4)))) {
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSA).anyMatch(s4 -> role.getName().equals(s4)))) {
             return 4;
         }
-        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSB).anyMatch(s3 -> role.getId().equals(s3)))) {
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSB).anyMatch(s3 -> role.getName().equals(s3)))) {
             return 3;
         }
-        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSC).anyMatch(s2 -> role.getId().equals(s2)))) {
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSC).anyMatch(s2 -> role.getName().equals(s2)))) {
             return 2;
         }
-        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSD).anyMatch(s1 -> role.getId().equals(s1)))) {
+        else if (member.getRoles().stream().anyMatch(role -> Arrays.stream(STATIC.PERMSD).anyMatch(s1 -> role.getName().equals(s1)))) {
             return 1;
         } else {
             return 0;

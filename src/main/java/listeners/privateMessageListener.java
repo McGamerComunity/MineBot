@@ -9,7 +9,9 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import util.STATIC;
 
 import java.awt.*;
+import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Timer;
@@ -18,7 +20,11 @@ import java.util.TimerTask;
 
 public class privateMessageListener extends ListenerAdapter {
 
+
+
     public void onPrivateMessageReceived(PrivateMessageReceivedEvent event) {
+
+        final File file = new File( event.getAuthor().getId() + ".dat");
 
         if (event.getMessage().getContentRaw().startsWith("token_"))
             return;
@@ -52,6 +58,35 @@ public class privateMessageListener extends ListenerAdapter {
                     .setFooter("Disable this function with enetring '-disable'.", null)
                     .build()).queue();
 
+            return;
+        }
+
+        if (event.getMessage().getContentRaw().startsWith("-register")) {
+
+            try {
+                new File(String.valueOf(file)).createNewFile();
+
+                BufferedWriter br = new BufferedWriter(new FileWriter(file));
+
+                br.write(event.getMessage().getContentRaw().replace("-register", ""));
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return;
+
+        }
+
+        if (event.getMessage().getContentRaw().equalsIgnoreCase("-help")) {
+            event.getChannel().sendMessage(new EmbedBuilder()
+                    .setColor(new Color(0xC9FF30))
+                    .setDescription("Minebot Privatechat Help")
+                    .addField("Update Notify:", "**enable** enables update notification\n" +
+                            "**disable** disables update notification\n" +
+                            "**register** registers you with your minecraftaccount", false)
+                    .setFooter("Prefix: `-`", null)
+                    .build()).queue();
             return;
         }
 
