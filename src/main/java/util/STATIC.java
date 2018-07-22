@@ -5,34 +5,46 @@ import com.sedmelluq.discord.lavaplayer.source.twitch.TwitchStreamAudioTrack;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
 
+import java.lang.reflect.Array;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.stream.Stream;
 
 public class STATIC {
 
+    public static final String[] PERMSALL = {" ", "*"};
 
-    public static final String[] PERMS = {" ", "*", "Owner"};          /*PERMISSIONLEVEL 5*/
+    public static final String[] PERMS = {"Owner"};          /*PERMISSIONLEVEL 5*/
 
-    public static final String[] PERMSA = {"Co-Owner" + PERMS};          /*PERMISSIONLEVEL 4*/
+    public static final String[] PERMSA = {"Co-Owner"};          /*PERMISSIONLEVEL 4*/
 
-    public static final String[] PERMSB = {"Admin" + PERMSA};          /*PERMISSIONLEVEL 3*/
+    public static final String[] PERMSB = {"Admin"};          /*PERMISSIONLEVEL 3*/
 
-    public static final String[] PERMSC = {"Teammitglied" + PERMSB};          /*PERMISSIONLEVEL 2*/
+    public static final String[] PERMSC = {"Teammitglied"};          /*PERMISSIONLEVEL 2*/
 
-    public static final String[] PERMSD = {"Freunde" + PERMSC};          /*PERMISSIONLEVEL 1*/
+    public static final String[] PERMSD = {"Freunde"};          /*PERMISSIONLEVEL 1*/
 
     public static String PREFIX = "mb ";
 
     public static String VERSION = "2.10 ALPHA";
-    public static String TOKEN = secrets.token;
+    public static String LVERSION = "github querry failed";
+    public static String TOKEN = secrets.token;                     /*TOP SECRET TOKEN*/
     public static String CUSTOM_MESSAGE = "By McGamer";
-    public static String LICENCE = secrets.licence;
-    public static int BOT_OWNER_ID = 0;
+    public static String[] LICENCE = secrets.licence;               /* FUN FEATURE - CAN BE USED FOR SELLING THE BOT ---- CODE FROM secrets.java public static String[] licence = {"licence 1", "licence 2", ...};*/
+    public static String DISCORD = "MD3Nasp";
+    public static String BOT_OWNER_ID = "273115881960374272";
     public static boolean UPDATEINFO = true;
 
-    public static String GAME = PREFIX + "help | v." + VERSION + " | " + CUSTOM_MESSAGE;
+    public static String GAME = PREFIX + "help | v." + VERSION + " | ";
 
     public static OnlineStatus STATUS = OnlineStatus.ONLINE;
+
+    public static String input;
+
+
+    public static int music_volume = 10;
+    public static String musicChannel = "RageRadio";
 
 
     public class CMDTYPE {
